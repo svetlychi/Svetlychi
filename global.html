@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Светлячки — игра в Перми</title>
-<meta name="description" content="Городская игра «Светлячки» в Перми. Делаем мигающие коробочки, прячем, ищем. Правила и как участвовать.">
+<title>Светлячки — городская игра в Перми</title>
+<meta name="description" content="«Светлячки» — городская игра в Перми. Делаем мигающие коробочки, прячем, ищем. Это игра, а не закладка. Внутри батарейка и светодиод.">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='28' fill='%23ffffff'/><circle cx='50' cy='50' r='45' fill='none' stroke='%23ffffff' stroke-width='3' opacity='0.4'/></svg>">
 
-<meta property="og:title" content="Светлячки — игра в Перми">
-<meta property="og:description" content="Делаем мигающие коробочки, прячем по городу, ищем чужие.">
+<meta property="og:title" content="Светлячки — городская игра в Перми">
+<meta property="og:description" content="Это игра, а не закладка. Делаем мигающие коробочки, прячем по городу, ищем чужие.">
 <meta property="og:type" content="website">
 
 <style>
@@ -201,10 +201,40 @@
   }
 
   .hero {
-    padding: 90px 0 80px;
+    padding: 80px 0 80px;
     border-bottom: 1px solid var(--line);
     opacity: 1;
     transform: none;
+  }
+
+  .is-game {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--bg);
+    background: var(--fg);
+    padding: 8px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    animation: pulseSoft 2.5s infinite;
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.5); }
+    50% { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+  }
+
+  .is-game::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bg);
+    animation: blink 1.5s infinite;
   }
 
   h1 {
@@ -242,6 +272,27 @@
   }
 
   .muted { color: var(--muted); font-size: 14px; }
+
+  .safety {
+    background: #111;
+    border: 1px solid var(--line);
+    border-left: 3px solid #8fff9f;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 28px;
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.6;
+  }
+
+  .safety strong {
+    color: #8fff9f;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
 
   .buttons {
     display: flex;
@@ -525,7 +576,7 @@
     nav { gap: 10px; }
     nav a { font-size: 11px; }
     section { padding: 72px 0; }
-    .hero { padding: 64px 0 56px; }
+    .hero { padding: 56px 0; }
     .btn { padding: 12px 22px; font-size: 14px; }
     .cursor-glow { display: none; }
     .channel-block { padding: 32px 24px; }
@@ -534,6 +585,7 @@
     .box { padding: 24px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     .footer-brand { grid-column: 1 / -1; }
+    .is-game { font-size: 11px; padding: 7px 14px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -568,6 +620,8 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="container">
+    <span class="is-game">Это игра, а не закладка</span>
+
     <h1>Делай светлячка.<br><span class="accent">Прячь в Перми.</span><br>Ищи чужих.</h1>
 
     <p>
@@ -575,6 +629,13 @@
       прячешь в городе, пишешь в канал где. Другие ищут. Нашёл чужого —
       сфоткал, оставил на месте.
     </p>
+
+    <div class="safety">
+      <strong>Это безопасно</strong>
+      Внутри — батарейка и светодиод. Ничего запрещённого, никаких «закладок».
+      Проект некоммерческий, для игры. Если нашли такую коробочку — не паникуйте,
+      отсканируйте QR или зайдите на <a href="https://clck.ru/3WNNaj" target="_blank" rel="noopener" style="color:#f5f5f5;text-decoration:underline;">clck.ru/3WNNaj</a>.
+    </div>
 
     <div class="buttons">
       <a href="https://max.ru/join/HCoxJPD9ngotDgnYxKbVMSCSRiIORTlXE8mqkK2OcVw" target="_blank" rel="noopener" class="btn btn-primary">
@@ -602,7 +663,7 @@
         <div class="step-num"></div>
         <div class="step-content">
           <h3>Спрячь в городе</h3>
-          <p>Открытое место: парк, набережная, сквер, двор. Приклей QR на сайт для нашедших.</p>
+          <p>Открытое место: парк, набережная, сквер, двор. Наклей QR и напиши «Это игра».</p>
         </div>
       </div>
       <div class="step">
@@ -632,7 +693,7 @@
     <ul class="list do">
       <li>Открытые общественные места</li>
       <li>Простые понятные корпуса</li>
-      <li>QR-наклейка на сайт для нашедших</li>
+      <li>Наклейка «Это игра» + QR на сайт</li>
       <li>Забрать, если мешает или попросили</li>
       <li>Оставить чужого на месте</li>
     </ul>
@@ -646,10 +707,26 @@
       <li>Места, где могут приехать службы</li>
     </ul>
 
-    <div class="box" style="margin-top:40px;">
+    <!-- НОВЫЙ БЛОК: ЧТО ПИСАТЬ НА СВЕТЛЯЧКЕ -->
+    <div class="box" style="margin-top:40px; border-left:3px solid #8fff9f;">
+      <div class="box-icon">📝</div>
+      <h3>Что писать на светлячке</h3>
+      <p>Обязательно наклей на корпус надпись, чтобы никто не подумал плохое. Пример текста:</p>
+
+      <div style="background:#0a0a0a; border:1px dashed #444; border-radius:12px; padding:20px 24px; margin:20px 0; font-family:'Courier New',monospace; font-size:15px; color:#f5f5f5; line-height:1.7;">
+        ЭТО ИГРА<br>
+        Внутри батарейка и светодиод<br>
+        Ничего опасного<br>
+        Подробнее: clck.ru/3WNNaj
+      </div>
+
+      <p class="muted" style="margin-bottom:0;">Распечатай, наклей или напиши маркером. Рядом — QR-код на сайт для нашедших.</p>
+    </div>
+
+    <div class="box" style="margin-top:24px;">
       <div class="box-icon">▣</div>
       <h3>QR на корпус</h3>
-      <p>На каждый светлячок клей QR или пиши ссылку. Тогда нашедший поймёт, что это игра, а не что-то опасное.</p>
+      <p>На каждый светлячок клей QR или пиши ссылку. Тогда нашедший сразу поймёт, что это игра, а не что-то опасное.</p>
 
       <div style="text-align:center; margin:24px 0;">
         <img src="https://raw.githubusercontent.com/svetlychi/Svetlychi/main/IMG_20261008_204939.png" 
@@ -718,7 +795,7 @@
           МАКС
         </a>
         <!-- TODO: заменить на реальный Telegram-канал -->
-        <a href="а тг так то заблокирован на территории РФ куда ты тыкаешь (скоро будет )" target="_blank" rel="noopener" class="btn btn-secondary">
+        <a href="https://telegram.org" target="_blank" rel="noopener" class="btn btn-secondary">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
           </svg>
@@ -737,7 +814,7 @@
           <span class="logo-dot"></span>
           Светлячки
         </div>
-        <p class="footer-tagline">Пермь. Некоммерческий проект.</p>
+        <p class="footer-tagline">Пермь. Некоммерческий проект. Любительская городская игра.</p>
       </div>
 
       <div class="footer-col">
@@ -917,4 +994,4 @@
 </script>
 
 </body>
-</html>
+ </html>
